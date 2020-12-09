@@ -1,0 +1,29 @@
+<% layout('/layouts/inlog-boilerplate') -%>
+
+
+<h1>Nu zie je alle gegevens van de geselecteerde klus</h1>
+<p>Onder de gegevens 2 buttons: 1 voor klus accepteren en 1 voor terug</p>
+
+<h3> <%= klus.omschrijving %> </h3>
+
+<h4> <%= klus.gebruikersnaam %> </h4>
+
+<ul>
+    <li>
+        Categorie: <%= klus.categorie %>
+    </li>
+    <li>
+        Toelichting: <%= klus.toelichting %>
+    </li>
+    <li>
+        Plaatsingsdatum: <%= klus.plaatsingdt %>
+    </li>
+    <li>
+        Wil je deze klus accepteren? Stuur dan een mailtje naar <%= klus.email %> en druk dan op de knop Accepteer klus.
+    </li>
+</ul>
+<a class="btn btn-primary" href="/klussen">Terug</a>
+<a class="btn btn-warning" href="/klussen/<%=klus._id%>/edit">Wijzig klus</a>
+<form class="d-inline" action="/klussen/<%=klus._id%>?_method=DELETE" method="POST">
+    <button class="btn btn-success">Accepteer klus</button>
+</form>

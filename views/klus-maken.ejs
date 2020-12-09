@@ -1,0 +1,60 @@
+<% layout('/layouts/inlog-boilerplate') -%>
+
+
+
+<div class="container">
+    <div class="card-body">
+        <h4 class="card-title">Nieuwe klus toevoegen</h4>
+        <!-- <div class="col-6 offset-3"> -->
+        <form action="/klussen" method="POST" novalidate class="validated-form">
+
+            <div class="mb-3">
+                <label class="form-label" for="aanvrager">Gebruikersnaam</label>
+                <input class="form-control" type="text" id="aanvrager" name="klus[aanvrager]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="email">Emailadres</label>
+                <input class="form-control" type="email" id="email" name="klus[email]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="omschrijving">Omschrijving</label>
+                <input class="form-control" type="text" id="omschrijving" name="klus[omschrijving]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="toelichting">Toelichting</label>
+                <input class="form-control" type="text" id="toelichting" name="klus[toelichting]" required>
+            </div>
+            <div class="mb-3">
+                <label for="categorie">Categorie</label>
+                <select class="form-control" id="categorie" name="klus[categorie]">
+                    <option value="">--Kies een categorie--</option>
+                    <option value="boodschap">Boodschap</option>
+                    <option value="technisch">Technisch</option>
+                    <option value="sociaal">Sociaal</option>
+                    <option value="fysiek">Fysiek</option>
+                    <option value="culinair">Culinair</option>
+                    <option value="overig">Overig</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="vervaldt">Vervaldatum</label>
+                <input class="form-control" type="date" id="vervaldt" name="klus[vervaldt]" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="date"></label>
+                <input class="form-control" type="hidden" value="CurrentDate" id="date" name="klus[plaatsingdt]"
+                    required>
+            </div>
+            <!-- </div> -->
+            <div class="mb-3">
+                <button class="btn btn-success">Voeg toe</button>
+            </div>
+        </form>
+        <button class="btn btn-primary" href="/klussen">Alle klussen</button>
+
+    </div>
+</div>
+<script type="text/javascript">
+    const d = new Date();
+    document.getElementById("date").value = d.toDateString();
+</script>
